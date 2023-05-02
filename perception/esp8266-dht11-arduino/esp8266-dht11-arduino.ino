@@ -1,18 +1,20 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
-#include "DHTesp.h" 
+#include "DHTesp.h"
 
 #include "config.h"
-  
+
 DHTesp dht;
 
 float humidity = 0.0;
 float temperature = 0.0;
 int ONE_WIRE_GPIO = 5;
-const char* WIFI_SSID = "KER_Huespedes";
-const char* WIFI_PASSWORD= "ker082019";
-const char* DEVICE_ID= "ESP8266";
-const char* API_IP_PORT= "192.168.43.42:8080";
+String WIFI_SSID = "";
+String WIFI_PASSWORD = "";
+String DEVICE_ID = "";
+String key = "ESP8266";
+String API_IP_PORT = "192.168.0.84:8080";
+//#define API_IP_PORT "192.168.0.84:8080"
 
 void setup() {
   delay(10000);
@@ -20,12 +22,12 @@ void setup() {
   Serial.begin(115200);
 
   Serial.println("ESP8266 DHT HTTP POST");
-  
+
   dht.setup(ONE_WIRE_GPIO, DHTesp::DHT11);
   delay(dht.getMinimumSamplingPeriod());
 
   Serial.println(dht.getStatusString());
-  humidity    = dht.getHumidity();
+  humidity = dht.getHumidity();
   temperature = dht.getTemperature();
   Serial.print("Temperature : ");
   Serial.println(temperature);
@@ -46,28 +48,31 @@ void setup() {
   Serial.println("");
   Serial.print("Connected! IP address: ");
   Serial.println(WiFi.localIP());
-
 }
 
 void loop() {
   // wait for WiFi connection
   if ((WiFi.status() == WL_CONNECTED)) {
 
-  Serial.println(dht.getStatusString());
-  humidity    = 55;//dht.getHumidity();
-  temperature = 100;//dht.getTemperature();
-  Serial.print("Temperature : ");
-  Serial.println(temperature);
-  Serial.print("Humidity : ");
-  Serial.println(humidity);
-
+    Serial.println(dht.getStatusString());
+    humidity = 55;      //dht.getHumidity();
+    temperature = 100;  //dht.getTemperature();
+    DEVICE_ID = WiFi.macAddress();
+    Serial.print("Temperature : ");
+    Serial.println(temperature);
+    Serial.print("Humidity : ");
+    Serial.println(humidity);
+    Serial.print("device_id : ");
+    Serial.println(DEVICE_ID);
+    Serial.print("key : ");
+    Serial.println(key);
 
     WiFiClient client;
     HTTPClient http;
 
     Serial.print("[HTTP] begin...\n");
     // configure traged server and url
-    http.begin(client, "http://192.168.43.42:8080/measurement");
+    http.begin(client, "http://"+API_IP_PORT+"/measurement");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
     Serial.print("[HTTP] POST...\n");
@@ -75,9 +80,12 @@ void loop() {
     String post("id=");
     post += DEVICE_ID;
     post += "&t=";
-    post += 55;//temperature;
+    post += 55;  //temperature;
     post += "&h=";
-    post += 100;//humidity;
+    post += 100;  //humidity;
+    post += "&key=";
+    post += key;
+
     int httpCode = http.POST(post);
 
     // httpCode will be negative on error
@@ -93,7 +101,8 @@ void loop() {
         Serial.println(">>");
       }
     } else {
-      Serial.printf("[HTTP] POST... failed, error: %s when connecting to %s\n", http.errorToString(httpCode).c_str(), API_IP_PORT);
+      Serial.printf("[HTTP] POST... failed, error: %s when connecting to ", http.errorToString(httpCode).c_str());
+      Serial.println(API_IP_PORT);
     }
 
     http.end();
