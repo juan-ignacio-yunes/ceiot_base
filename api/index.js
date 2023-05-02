@@ -43,9 +43,16 @@ app.use(express.static('spa/static'));
 const PORT = 8080;
 
 app.post('/measurement', function (req, res) {
--       console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity    : " + req.body.h);	
-    const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, h:req.body.h});
-	res.send("received measurement into " +  insertedId);
+    timestamp = Date.now();
+    var auth = db.public.many("SELECT * FROM devices where devices.device_id='"+req.body.id+"' and devices.key='"+req.body.key+"'");
+    if (auth == '') {
+        console.log("not received measurement. Incorrect device_id and/or key");
+        res.send("not received measurement. Incorrect device_id and/or key");
+		} else {
+		    console.log("timestamp    : " + Date(timestamp) + "device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity    : " + req.body.h);	
+		    const {insertedId} = insertMeasurement({timestamp:timestamp, id:req.body.id, t:req.body.t, h:req.body.h});
+		    res.send("received measurement from device " +  req.body.id);
+		}
 });
 
 app.post('/device', function (req, res) {
