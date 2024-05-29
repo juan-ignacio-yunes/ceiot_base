@@ -13,7 +13,7 @@ Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenar
   El proyecto se llama "Estación inteligente para el cuidado y monitoreo remoto de mascotas". En una primera instacnia consta de un comedero automático que además incorpora la capacidad de pesar al animal para hacer un seguimiento de este. Mientras que el hardware incorporará productos que ya están disponibles en el mercado, se desarrollará software para gestionar el equipo. Entre otras cosas, este gestionará los permisos de usuarios, registros de diferentes valores (peso de los animales, tamaño de las porciones de alimento a dispoensar, etc.), autorizaciones a terceras personas, entre otras. Se puede leer más sobre el proyecto [aquí](https://github.com/juan-ignacio-yunes/Plantilla-planificacion/blob/master/charter.pdf).
   
 ## Objetivo:
-  Obtener las credenciales de los usuarios para ver si es posible utilizarlas en otras plataformas como bancos, email, etc. y extorsionar a la empresa con el pago de dinero a cambio de no afectar el correcto funcionamiento de los dispositivos de los clientes vulnerados, dañando así la reputación de la firma.
+  Obtener las credenciales de los usuarios para ver si es posible utilizarlas en otras plataformas como bancos, email, etc. Se buscará que la empresa no detecte el ataque, con el fin de poder explotar la vulnerabilidad durante el mayor tiempo posible.
 
 ## Resolución
 * Reconnaissance
