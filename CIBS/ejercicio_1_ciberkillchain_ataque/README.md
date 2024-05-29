@@ -1,20 +1,33 @@
 # Ejercicio CiberKillChain - Ataque
 
-Hacer una copia de este documento para utilizar com plantilla para el ejercicio quitando las instrucciones y el ejemplo.
-
-## Alumno
-
-(completar)
 
 ## Enunciado
 
 Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenario relacionado al trabajo práctico de la carrera.
 
-### Instrucciones
+## Instrucciones
 
-Debe haber un objetivo para el ataque.
+### Crear un nuevo documento en esta carpeta con el nombre entrega.md y las siguientes secciones:
 
-El escenario debe ser con el sistema ya funcionando en el futuro.
+ * (# Alumno) Alumno
+ * (# Sistema víctima) Muy breve descripción del trabajo práctico con link si hay
+ * (# Objetivo)
+ * (# Resolución)
+ * (## Reconnaissance)
+ * (## Weaponization)
+ * etc...
+
+## Alguna indicaciones útiles
+
+Debe haber un objetivo para el ataque, algunas ideas inspiradoras:
+
+* Obtener información con algún tipo de valor.
+* Alguna variante extorsiva de ransomware.
+* Usar de plataforma para atacar a otros, ya sea por ancho de banda, anonimización o como desplazamiento lateral hacia un objetivo más interesante.
+* Usar la plataforma para extraerle valor como criptominado o almacenamiento de información ilegal.
+* Sabotear la plataforma a favor de la competencia, tipo stuxnet.
+
+El escenario debe asumir el sistema ya funcionando en el futuro.
 
 Debe ser en primera persona, es el punto de vista del atacante.
 
@@ -23,44 +36,47 @@ PURO ATAQUE, nada de andar pensando cómo corregir nada.
 
 Para cada etapa, si hay varias medidas posibles, ordenar dejando para lo último lo que se va a hacer en el siguiente paso.
 
-### Ejemplo adaptado a un juego de guerra inventado:
+### Ejemplo adaptado a un juego de guerra inventado
 
-Objetivo del ataque: inhabilitar sin destruir el puerto enemigo con vistas a posteriormente tomarlo.
+Las alternativas están en este ejemplo a modo ilustrativo, no deben haber alternativas en la entrega.
+
+* Objetivo del ataque: inhabilitar sin destruir el puerto enemigo con vistas a posteriormente tomarlo.
 
 * Reconnaissance
   - Imagen satelital identifica una pista de aterrizaje.
   - Espías dicen que por el puerto entra el combustible.
   - Espías locales dicen que la playa cercana no tiene buena vigilancia.
+  - Espías locales dicen que el bosque cercano no tiene buena vigilancia.
 
-* Weaponization
-  - Puedo preparar un bombardeo.
-  - Decido preparar un equipo de comandos de sabotage.
+* Weaponization (con alternativas de ejemplo)
+  - **Decido** preparar un equipo de comandos de sabotage.
+  - **Decido** preparar un equipo de comandos de sabotage con gomones de desembarco y un submarino para desembarcar en la playa cercana que no tiene buena vigilancia. (mejor)
+  - **Decido** preparar un equipo de comandos de sabotage, gomones de desembarco y un submarino para desembarcar en la playa cercana que no tiene buena vigilancia. (mucho mejor)
+  - **Decido** preparar un equipo de comandos de sabotage con equipo de comuicaciones Super High TeraHertz Radio que el adversario no puede detectar, gomones de desembarco y un submarino para desembarcar en la playa cercana que no tiene buena vigilancia. (muchísimo mejor)
+  - **Puedo** *preparar un equipo de comandos de sabotage paracaidistas*
+  - **Puedo** *preparar un bombardeo al puerto.*
+  - **Puedo** *preparar la invasión directamente.*
   
 * Delivery
   - Envío al equipo de sabotage a la playa cercana en submarino.
+  - Envío al equipo de sabotage a la playa cercana en submarino y gomones de desembarco (mejor)
   
-* Exploit
+* Exploit (con alternativas de ejemplo)
   - El equipo logra desembarcar sin incidentes en la playa.
+  - El equipo logra desembarcar sin incidentes en la playa por la falta de vigilancia.
   
-* Installation  
-  - El equipo se hace pasar por una compañia de circo como camuflaje.
+* Installation (con alternativas de ejemplo)
+  - El equipo se hace pasar por una compañia de circo como camuflaje. (si es porque el equipo encuentra una compañía de circo no hace falta que esté en Weaponization)
+  - El equipo se esconde en un bosque cercano
 
 * Command & Control
-  - Podría utilizar palomas mensajeras.
-  - Decido utilizar Super High TeraHertz Radio que el adversario no puede detectar.
+  - **Decido** utilizar Super High TeraHertz Radio que el adversario no puede detectar.
+  - **Puedo** *utilizar palomas mensajeras.*
   
 * Actions on Objectives
   - El equipo de comandos provoca daños menores en las cañerías.
   - El equipo de comandos coloca minas en el puerto dejando un camino para el desembarco.
   
-
-## Datos trabajo práctico
-
-link
-
-Muy breve descripción
-
-## Resolución
 
 
   
