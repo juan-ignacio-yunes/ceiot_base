@@ -16,71 +16,102 @@ Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenar
   Obtener las credenciales de los usuarios para ver si es posible utilizarlas en otras plataformas como bancos, email, etc. Se buscará que la empresa no detecte el ataque, con el fin de poder explotar la vulnerabilidad durante el mayor tiempo posible.
 
 ## Resolución
-* Reconnaissance
-* Weaponization
-* Delivery
-* Exploit
-* Installation
-* Command & control
-* Actions on Objectives
 
------------------------------------------------------------------------------------------------------------------------------
-## Alguna indicaciones útiles
+* Reconocimiento (Reconnaissance)
 
-Debe haber un objetivo para el ataque, algunas ideas inspiradoras:
+** Identificación de empleados en LinkedIn:
 
-* Obtener información con algún tipo de valor.
-* Alguna variante extorsiva de ransomware.
-* Usar de plataforma para atacar a otros, ya sea por ancho de banda, anonimización o como desplazamiento lateral hacia un objetivo más interesante.
-* Usar la plataforma para extraerle valor como criptominado o almacenamiento de información ilegal.
-* Sabotear la plataforma a favor de la competencia, tipo stuxnet.
+T1592.001 (Recopilación de información sobre el entorno de la red) y T1589.002 (Recopilación de correos electrónicos)
+Buscar empleados de la empresa desarrolladora del comedero automático en LinkedIn y otras redes profesionales.
+Recopilar información pública sobre estos empleados, incluyendo nombres, cargos, y correos electrónicos.
+Analizar las conexiones y publicaciones de los empleados para obtener más detalles sobre su rol y acceso a la aplicación.
 
-El escenario debe asumir el sistema ya funcionando en el futuro.
+** Diseño de correos electrónicos de phishing personalizados:
 
-Debe ser en primera persona, es el punto de vista del atacante.
+T1589.001 (Phishing)
+Utilizar la información recopilada para personalizar correos electrónicos de phishing, haciéndolos parecer mensajes internos de la empresa o comunicaciones oficiales de la aplicación del comedero automático.
+Incluir detalles específicos (nombres de compañeros, proyectos en los que trabajan) para aumentar la credibilidad del correo.
 
-Es recomendable hacer dos o tres pasadas, en la primera la idea, en las siguientes refinamientos especificando las técnicas.
-PURO ATAQUE, nada de andar pensando cómo corregir nada.
+* Armamento (Weaponization)
 
-Para cada etapa, si hay varias medidas posibles, ordenar dejando para lo último lo que se va a hacer en el siguiente paso.
+** Crear un sitio web de phishing:
 
-### Ejemplo adaptado a un juego de guerra inventado
+T1204.002 (Phishing mediante enlaces maliciosos)
+Diseñar un sitio web que imite la interfaz de inicio de sesión de la aplicación del comedero automático.
+Incluir todos los elementos visuales y de navegación que se encuentran en el sitio legítimo, como logos, esquemas de color, y mensajes de bienvenida.
 
-Las alternativas están en este ejemplo a modo ilustrativo, no deben haber alternativas en la entrega.
+** Alojar el sitio de phishing en un servidor seguro:
 
-* Objetivo del ataque: inhabilitar sin destruir el puerto enemigo con vistas a posteriormente tomarlo.
+T1027 (Ofuscación de archivos ejecutables y scripts)
+Utilizar servicios de alojamiento que permitan el uso de HTTPS para dar una apariencia de seguridad.
+Implementar medidas para ofuscar el código del sitio de phishing y evitar su detección por herramientas de seguridad.
 
-* Reconnaissance
-  - Imagen satelital identifica una pista de aterrizaje.
-  - Espías dicen que por el puerto entra el combustible.
-  - Espías locales dicen que la playa cercana no tiene buena vigilancia.
-  - Espías locales dicen que el bosque cercano no tiene buena vigilancia.
+* Entrega (Delivery)
 
-* Weaponization (con alternativas de ejemplo)
-  - **Decido** preparar un equipo de comandos de sabotage.
-  - **Decido** preparar un equipo de comandos de sabotage con gomones de desembarco y un submarino para desembarcar en la playa cercana que no tiene buena vigilancia. (mejor)
-  - **Decido** preparar un equipo de comandos de sabotage, gomones de desembarco y un submarino para desembarcar en la playa cercana que no tiene buena vigilancia. (mucho mejor)
-  - **Decido** preparar un equipo de comandos de sabotage con equipo de comuicaciones Super High TeraHertz Radio que el adversario no puede detectar, gomones de desembarco y un submarino para desembarcar en la playa cercana que no tiene buena vigilancia. (muchísimo mejor)
-  - **Puedo** *preparar un equipo de comandos de sabotage paracaidistas*
-  - **Puedo** *preparar un bombardeo al puerto.*
-  - **Puedo** *preparar la invasión directamente.*
-  
-* Delivery
-  - Envío al equipo de sabotage a la playa cercana en submarino.
-  - Envío al equipo de sabotage a la playa cercana en submarino y gomones de desembarco (mejor)
-  
-* Exploit (con alternativas de ejemplo)
-  - El equipo logra desembarcar sin incidentes en la playa.
-  - El equipo logra desembarcar sin incidentes en la playa por la falta de vigilancia.
-  
-* Installation (con alternativas de ejemplo)
-  - El equipo se hace pasar por una compañia de circo como camuflaje. (si es porque el equipo encuentra una compañía de circo no hace falta que esté en Weaponization)
-  - El equipo se esconde en un bosque cercano
+** Enviar correos electrónicos de phishing:
 
-* Command & Control
-  - **Decido** utilizar Super High TeraHertz Radio que el adversario no puede detectar.
-  - **Puedo** *utilizar palomas mensajeras.*
-  
-* Actions on Objectives
-  - El equipo de comandos provoca daños menores en las cañerías.
-  - El equipo de comandos coloca minas en el puerto dejando un camino para el desembarco.
+T1566.001 (Phishing a través de correos electrónicos)
+Enviar los correos electrónicos personalizados a los empleados y a usuarios de la aplicación fingiendo una promoción especial o que vean una actualización de alguna característica del frontend de la aplicación. Incluir un enlace al sitio de phishing, disfrazado como un enlace a la página de inicio de sesión oficial.
+
+** Utilizar redes sociales para ampliar el alcance:
+
+Compartir enlaces maliciosos en plataformas de redes sociales, mediante mensajes directos o publicaciones.
+
+* Explotación (Exploitation)
+
+** Interacción con el sitio de phishing:
+
+T1203 (Explotación de vulnerabilidades en software)
+Los usuarios que hacen clic en el enlace del correo de phishing son dirigidos al sitio web falso.
+Se les pide que ingresen sus credenciales como verificación.
+
+
+** Captura de credenciales:
+
+Las credenciales ingresadas en el sitio de phishing se envían al servidor paralelo controlado por nosotros y no por la empresa.
+El sitio de phishing puede redirigir a los usuarios a la página legítima después de la captura para reducir sospechas.
+
+* Instalación (Installation)
+Objetivo: Establecer persistencia en el sistema comprometido.
+
+** Acceder a la aplicación con credenciales robadas:
+
+T1078.001 (Uso de credenciales válidas para obtener acceso)
+Utilizar las credenciales obtenidas para iniciar sesión en la aplicación del comedero automático.
+Explorar las configuraciones y funcionalidades disponibles para la cuenta comprometida, especialmente para saber quienes son los contactos cercanos al usuario mendiante el nivel de acceso otorgado.
+Detectar objetivos importantes, como ser veterinarios y paseadores, contando la cantidad de usuarios con los cuales tienen vínculos.
+
+
+** Instalación de backdoors:
+
+T1546.003 (Instalación de malware para persistencia)
+Modificar configuraciones de la cuenta o de la aplicación para instalar scripts maliciosos que permitan el acceso continuo.
+Crear accesos secundarios o usuarios con privilegios que puedan ser utilizados en caso de que la cuenta principal comprometida sea detectada y bloqueada.
+
+* Comando y Control (Command and Control)
+
+** Establecer un canal seguro de comunicación:
+
+T1071.001 (Comunicación con C2 a través de HTTP/HTTPS)
+Utilizar protocolos comunes y cifrados (HTTP/HTTPS) para comunicarse con el malware instalado en la aplicación.
+Implementar técnicas de ofuscación y cifrado en la comunicación para evitar la detección.
+
+** Enviar y recibir comandos:
+
+Utilizar el canal de comunicación C2 para enviar comandos al sistema comprometido.
+Monitorizar la actividad de la cuenta comprometida y realizar ajustes según sea necesario.
+
+* Acciones sobre los Objetivos (Actions on Objectives)
+
+** Exfiltración de credenciales:
+
+T1530 (Robo de credenciales para uso en otros sistemas)
+Descargar y almacenar las credenciales robadas en un servidor seguro controlado por el atacante.
+Utilizar las credenciales para acceder a otros servicios y plataformas, como correos electrónicos y bancos.
+
+** Mantener actividades de bajo perfil:
+
+T1078.001 (Uso de credenciales válidas en otros servicios)
+Minimizar las actividades visibles para evitar la detección.
+Configurar alertas silenciosas que notifiquen al atacante sobre cualquier posible descubrimiento de la brecha sin alertar a los defensores.
+Continuar explotando las credenciales robadas durante el mayor tiempo posible, realizando movimientos laterales para acceder a más información valiosa.
