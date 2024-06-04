@@ -38,7 +38,7 @@ Se opta por atacar a los adminisradores de la aplicación para acceder a la bae 
   
   * Crear un sitio web de phishing (T1204.002 - Phishing mediante enlaces maliciosos):
     Diseñar un sitio web que imite la interfaz de inicio de sesión de alguna aplicación que usen en la empresa.
-    Incluir todos los elementos visuales y de navegación que se encuentran en el sitio legítimo, como logos, esquemas de color y mensajes de bienvenida.
+    Incluir todos los elementos visuales y de navegación que se encuentran en el sitio legítimo, como logos, esquemas de color y mensajes de bienvenida. En el código de este sitio se contemplará que luego de que el usuario acceda con sus credenciales, se lo redigirá automáticamente a la página oficial y se lo autenticará sin que este se de cuenta.
 
   * Desarrollar y/u obtener certificados de seguridad para el sitio web (T1587.003 - Desarrollar certificados digitales, T1588.004 - Comprar o robar certificados digitales):
     Se usarán para dar una apariencia de seguridad.  
@@ -46,14 +46,13 @@ Se opta por atacar a los adminisradores de la aplicación para acceder a la bae 
   * Instalar certificados digitales (T1608.003):
     Para simular que el sitio está alojado en un servidor seguro y a dar una apariencia de seguridad mediante el uso de protocolo HTTPS.
 
+  * Generar cuentas en redes sociales (T1585.001 - Establecer cuentas en redes sociales):
+    Estas se usarán para contactarse con los empleados de la empresa y enviarles mensajes con enlaces maliciosos.
+
 * Entrega (Delivery)
 
-  * Enviar correos electrónicos de phishing (T1566.001 - Phishing a través de correos electrónicos):
-    Enviar los correos electrónicos personalizados a los empleados y a usuarios de la aplicación fingiendo una promoción especial o que vean una actualización de alguna característica del frontend de la aplicación. Incluir un enlace al sitio de phishing, disfrazado como un enlace a la página de inicio de sesión oficial.
-
-  * Utilizar redes sociales para ampliar el alcance:
-
-Compartir enlaces maliciosos en plataformas de redes sociales, mediante mensajes directos o publicaciones.
+  * Enviar correos electrónicos de phishing (T1566.002 - Phishing a través de correos electrónicos):
+    Enviar los correos electrónicos personalizados a los empleados fingiendo una comunicación oficial de la propia empresa con un enlace que lo redireccione al sitio de phishing, disfrazado como un enlace a la página de inicio de sesión oficial.
 
 * Explotación (Exploitation)
 
@@ -67,7 +66,7 @@ Compartir enlaces maliciosos en plataformas de redes sociales, mediante mensajes
   * Captura de credenciales:
 
     Las credenciales ingresadas en el sitio de phishing se envían al servidor paralelo controlado por nosotros y no por la empresa.
-    El sitio de phishing puede redirigir a los usuarios a la página legítima después de la captura para reducir sospechas.
+    Como se mencionó en la etapa de weaponization, el sitio de phishing redirigirá a los usuarios a la página legítima después de la captura y lo autenticará sin que lo note para reducir sospechas.
 
 * Instalación (Installation)
 Objetivo: Establecer persistencia en el sistema comprometido.
