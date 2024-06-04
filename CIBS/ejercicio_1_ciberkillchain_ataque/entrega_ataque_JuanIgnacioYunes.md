@@ -10,47 +10,45 @@ Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenar
   Yunes, Juan Ignacio
   
 ## Sistema víctima
-  El proyecto se llama "Estación inteligente para el cuidado y monitoreo remoto de mascotas". En una primera instacnia consta de un comedero automático que además incorpora la capacidad de pesar al animal para hacer un seguimiento de este. Mientras que el hardware incorporará productos que ya están disponibles en el mercado, se desarrollará software para gestionar el equipo. Entre otras cosas, este gestionará los permisos de usuarios, registros de diferentes valores (peso de los animales, tamaño de las porciones de alimento a dispoensar, etc.), autorizaciones a terceras personas, entre otras. Se puede leer más sobre el proyecto [aquí](https://github.com/juan-ignacio-yunes/Plantilla-planificacion/blob/master/charter.pdf).
+  El proyecto se llama "Estación inteligente para el cuidado y monitoreo remoto de mascotas". En una primera instancia consta de un comedero automático que además incorpora la capacidad de pesar al animal para hacer un seguimiento de este. Mientras que el hardware incorporará productos que ya están disponibles en el mercado, se desarrollará software para gestionar el equipo. Entre otras cosas, este gestionará los permisos de usuarios, registros de diferentes valores (peso de los animales, tamaño de las porciones de alimento a dispoensar, etc.), autorizaciones a terceras personas, entre otras. Se puede leer más sobre el proyecto [aquí](https://github.com/juan-ignacio-yunes/Plantilla-planificacion/blob/master/charter.pdf).
   
 ## Objetivo:
-  Obtener las credenciales de los usuarios para ver si es posible utilizarlas en otras plataformas como bancos, email, etc. Se buscará que la empresa no detecte el ataque, con el fin de poder explotar la vulnerabilidad durante el mayor tiempo posible.
+  Obtener las credenciales de los usuarios para ver si es posible utilizarlas en otras plataformas de servicios bancarios, servicios de email, etc. Se buscará que la empresa no detecte el ataque, con el fin de poder explotar la vulnerabilidad durante el mayor tiempo posible.
 
 ## Resolución
+Se opta por atacar a los adminisradores de la aplicación para acceder a la bae de datos y extraer de ahí la información necesaria.
 
 * Reconocimiento (Reconnaissance)
 
-  * Identificación de empleados en LinkedIn:
-
-    T1592.001 (Recopilación de información sobre el entorno de la red) y T1589.002 (Recopilación de correos electrónicos)
+  * Identificación de empleados en LinkedIn, T1592.001 (Recopilación de información sobre el entorno de la red) y T1589.002 (Recopilación de correos electrónicos):
     Buscar empleados de la empresa desarrolladora del comedero automático en LinkedIn y otras redes profesionales.
     Recopilar información pública sobre estos empleados, incluyendo nombres, cargos, y correos electrónicos.
     Analizar las conexiones y publicaciones de los empleados para obtener más detalles sobre su rol y acceso a la aplicación.
 
-  * Diseño de correos electrónicos de phishing personalizados:
-
-    T1589.001 (Phishing)
-    Utilizar la información recopilada para personalizar correos electrónicos de phishing, haciéndolos parecer mensajes internos de la empresa o comunicaciones oficiales de la aplicación del comedero automático.
-    Incluir detalles específicos (nombres de compañeros, proyectos en los que trabajan) para aumentar la credibilidad del correo.
-
 * Armamento (Weaponization)
 
-  * Crear un sitio web de phishing:
+    * Diseño de correos electrónicos de phishing personalizados (T1589.001 - Phishing):
+    Utilizar la información recopilada para personalizar correos electrónicos de phishing, haciéndolos parecer mensajes internos de la empresa, comunicaciones oficiales de la empresa o comunicaciones oficiales de la aplicación del comedero automático. Incluir detalles específicos (nombres de compañeros, proyectos en los que trabajan) para aumentar la credibilidad del correo.
 
-    T1204.002 (Phishing mediante enlaces maliciosos)
-    Diseñar un sitio web que imite la interfaz de inicio de sesión de la aplicación del comedero automático.
-    Incluir todos los elementos visuales y de navegación que se encuentran en el sitio legítimo, como logos, esquemas de color, y mensajes de bienvenida.
+  * Montar y configurar infraestrucutra, en este caso se opta por servicio serverless (T1583.007 - Adquirir infraestructura serverless):
+    Será la plataforma donde se alojarán los servicios necesarios para llevar el ataque, como ser la página web, base de datos para alojar la información robada, servicios de autenticación que simularán los de la empresa, etc. A priori se elige a AWS como proveedor.
 
-  * Alojar el sitio de phishing en un servidor seguro:
+  * Adquirir servicios web (T1583.006):
+    Se configurarán los servicios antes mencionados en la plataforma serverless configurada.
+  
+  * Crear un sitio web de phishing (T1204.002 - Phishing mediante enlaces maliciosos):
+    Diseñar un sitio web que imite la interfaz de inicio de sesión de alguna aplicación que usen en la empresa.
+    Incluir todos los elementos visuales y de navegación que se encuentran en el sitio legítimo, como logos, esquemas de color y mensajes de bienvenida.
 
-    T1027 (Ofuscación de archivos ejecutables y scripts)
-    Utilizar servicios de alojamiento que permitan el uso de HTTPS para dar una apariencia de seguridad.
-    Implementar medidas para ofuscar el código del sitio de phishing y evitar su detección por herramientas de seguridad.
+  * Desarrollar y/u obtener certificados de seguridad para el sitio web (T1587.003 - Desarrollar certificados digitales, T1588.004 - Comprar o robar certificados digitales):
+    Se usarán para dar una apariencia de seguridad.  
+    
+  * Instalar certificados digitales (T1608.003):
+    Para simular que el sitio está alojado en un servidor seguro y a dar una apariencia de seguridad mediante el uso de protocolo HTTPS.
 
 * Entrega (Delivery)
 
-  * Enviar correos electrónicos de phishing:
-
-    T1566.001 (Phishing a través de correos electrónicos)
+  * Enviar correos electrónicos de phishing (T1566.001 - Phishing a través de correos electrónicos):
     Enviar los correos electrónicos personalizados a los empleados y a usuarios de la aplicación fingiendo una promoción especial o que vean una actualización de alguna característica del frontend de la aplicación. Incluir un enlace al sitio de phishing, disfrazado como un enlace a la página de inicio de sesión oficial.
 
   * Utilizar redes sociales para ampliar el alcance:
