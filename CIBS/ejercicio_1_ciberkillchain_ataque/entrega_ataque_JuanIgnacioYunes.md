@@ -21,10 +21,10 @@ Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenar
 
   * Identificación de empleados en LinkedIn:
 
-  T1592.001 (Recopilación de información sobre el entorno de la red) y T1589.002 (Recopilación de correos electrónicos)
-  Buscar empleados de la empresa desarrolladora del comedero automático en LinkedIn y otras redes profesionales.
-  Recopilar información pública sobre estos empleados, incluyendo nombres, cargos, y correos electrónicos.
-  Analizar las conexiones y publicaciones de los empleados para obtener más detalles sobre su rol y acceso a la aplicación.
+    T1592.001 (Recopilación de información sobre el entorno de la red) y T1589.002 (Recopilación de correos electrónicos)
+    Buscar empleados de la empresa desarrolladora del comedero automático en LinkedIn y otras redes profesionales.
+    Recopilar información pública sobre estos empleados, incluyendo nombres, cargos, y correos electrónicos.
+    Analizar las conexiones y publicaciones de los empleados para obtener más detalles sobre su rol y acceso a la aplicación.
 
   * Diseño de correos electrónicos de phishing personalizados:
 
