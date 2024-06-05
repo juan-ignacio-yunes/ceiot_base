@@ -81,15 +81,17 @@ Se opta por atacar a los adminisradores de la aplicación para acceder a la bae 
       reconocimiento de plataforma y recopilación de datos (T1530 - Acceder a la misma mediante los servicios habilitados por el proveedor de servicios Cloud).
 
       Aquí se pueden dar 3 casos:
-    1 - Que las credenciales estén en texto plano.
-    2-  Que podamos ver los mail y no las contraseñas.
-    3-  Que no se puedan ver ni los mails ni las contraseñas
+    
+    1 - Que las credenciales estén en texto plano: se procede a las acciones sobre los objetivos.    
 
-    Caso 1: Se procede a las acciones sobre los objetivos.    
-
-      * Acciones sobre los Objetivos (Actions on Objectives)  
+    * Acciones sobre los Objetivos (Actions on Objectives)  
       
-        * Exfiltración de datos (T1567.002 - Exfiltración a servicio cloud utilizando servicio web):
+      * Exfiltración de datos (T1567.002 - Exfiltración a servicio cloud utilizando servicio web):
             descarga y almacenamiento de las credenciales robadas en un servicio cloud alojado en el mismo proveedor. El usar el mismo proveedor cloud disminuye las probabilidades de detección ya que se evita la creación de conexiones "al exterior".
         
         * Utilizar las credenciales obtenidas para acceder a otros servicios y plataformas, como correos electrónicos y bancos.
+           
+    2-  Que no se puedan ver las credenciales pero sean recuperables: en este caso se debe desarrollar una nueva etapa de weaponization donde se desarrollará el código necesario para recuperar las credenciales, luego exfiltrar la data, después recuperar la información y finalmente utilizarla.
+    
+    3-  Que no se puedan ver ni los mails ni las contraseñas y no sean recuperables (que estén hasheados): aquí se debe desarrollar una nueva etapa de weaponization para que cada vez que alguien ingrese al sistema, las credenciales se almacenen en el servidor cloud malicioso. En este caso las credenciales luego quedan disponibles para ser explotadas.
+
