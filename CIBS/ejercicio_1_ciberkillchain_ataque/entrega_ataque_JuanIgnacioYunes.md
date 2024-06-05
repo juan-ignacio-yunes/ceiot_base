@@ -80,6 +80,7 @@ Se opta por atacar a los adminisradores de la aplicación para acceder a la bae 
 * Acciones sobre los Objetivos (Actions on Objectives)  
 
   * Exfiltración de datos (T1567.002 - Exfiltración a servicio cloud utilizando servicio web):
-      Descarga y almacenamiento de las credenciales robadas en un servicio cloud alojado en el mismo proveedor. El usar el mismo proveedor cloud disminuye las probabilidades de detección ya que se evita la creación de conexiones "al exterior".
+
+    Descarga y almacenamiento de las credenciales robadas en un servicio cloud alojado en el mismo proveedor. El usar el mismo proveedor cloud disminuye las probabilidades de detección ya que se evita la creación de conexiones "al exterior".
   
   * Utilizar las credenciales obtenidas para acceder a otros servicios y plataformas, como correos electrónicos y bancos.
