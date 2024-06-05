@@ -20,11 +20,14 @@ Se opta por atacar a los adminisradores de la aplicación para acceder a la bae 
 
 * Reconocimiento (Reconnaissance)
 
-  * Identificación de empleados en LinkedIn, T1592.001 (Recopilación de información sobre el entorno de la red) y T1589.002 (Recopilación de correos electrónicos):
+  * Identificación de empleados en la página oficial de la empresa, en LinkedIn y cualquier otro medio web:
       buscar empleados de la empresa desarrolladora del comedero automático en LinkedIn y otras redes profesionales.
       Recopilar información pública sobre estos empleados, incluyendo nombres, cargos, y correos electrónicos.
       Analizar las conexiones y publicaciones de los empleados para obtener más detalles sobre su rol y acceso a la aplicación.
       Tratar de identificar si usan un servicio cloud.
+    
+  * Recopilación de información sobre el entorno de la red (T1592.001):
+      se busca tener algún indicio de la estructura utilizada por la empresa.
 
 * Armamento (Weaponization)
 
