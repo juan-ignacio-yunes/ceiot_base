@@ -51,64 +51,38 @@ Se opta por atacar a los adminisradores de la aplicación para acceder a la bae 
 
 * Entrega (Delivery)
 
-  * Enviar correos electrónicos de phishing (T1566.002 - Phishing a través de correos electrónicos):
+  * Enviar correos electrónicos de phishing (T1566.001 - Phishing a través de correos electrónicos):
     Enviar los correos electrónicos personalizados a los empleados fingiendo una comunicación oficial de la propia empresa con un enlace que lo redireccione al sitio de phishing, disfrazado como un enlace a la página de inicio de sesión oficial.
 
 * Explotación (Exploitation)
 
-  * Interacción con el sitio de phishing:
-
-    T1203 (Explotación de vulnerabilidades en software)
+  * Interacción con el sitio de phishing (T1203 - Explotación de vulnerabilidades en software)
     Los usuarios que hacen clic en el enlace del correo de phishing son dirigidos al sitio web falso.
     Se les pide que ingresen sus credenciales como verificación.
-
-
-  * Captura de credenciales:
-
-    Las credenciales ingresadas en el sitio de phishing se envían al servidor paralelo controlado por nosotros y no por la empresa.
-    Como se mencionó en la etapa de weaponization, el sitio de phishing redirigirá a los usuarios a la página legítima después de la captura y lo autenticará sin que lo note para reducir sospechas.
+    Las credenciales ingresadas en el sitio de phishing se envían al servidor malisioso para ser almacenadas y luego, como se mencionó en la etapa de weaponization, se redirigirá a los usuarios a la página legítima  y los autenticará sin que lo noten, reduciendo así las sospechas.
 
 * Instalación (Installation)
 Objetivo: Establecer persistencia en el sistema comprometido.
 
-  * Acceder a la aplicación con credenciales robadas:
+  * Cración de cuentas (T1136.001/T1136.002 - Creación de cuenta local/de dominio):
+    Como estrategia de persistencia, se crea una nueva cuenta de usuario con permisos de administrador dentro del sistema afectado, en caso de que se detecte que la cuenta comprometida ha sido vulnerada y se tomen acciones sobre ella.
 
-    T1078.001 (Uso de credenciales válidas para obtener acceso)
-    Utilizar las credenciales obtenidas para iniciar sesión en la aplicación del comedero automático.
-    Explorar las configuraciones y funcionalidades disponibles para la cuenta comprometida, especialmente para saber quienes son los contactos cercanos al usuario mendiante el nivel de acceso otorgado.
-    Detectar objetivos importantes, como ser veterinarios y paseadores, contando la cantidad de usuarios con los cuales tienen vínculos.
+* Comando y Control (Command and Control): 
 
+  * Comunicación via protocolos web de lacapa de aplicación(T1071.001): la comunicación se hará usando protocolo HTTP/HTTPS usando la interfaz propia de la aplicación a la cuál se infiltró.
+    
+  * Acceder a la aplicación con credenciales robadas (T1078.003 - Uso de credenciales válidas correspondientes a "local accounts")
+    Utilizar las credenciales válidas comprometidas para minimizar sospechas y evitar la detección.
+    Explorar las configuraciones y funcionalidades disponibles para la cuenta comprometida.
 
-  * Instalación de backdoors:
+  * Recopilación de datos:
+    Reconocimiento de plataforma y recopilación de datos (T1530 - Acceder a la misma mediante los servicios habilitados por el proveedor de servicios Cloud).
 
-    T1546.003 (Instalación de malware para persistencia)
-    Modificar configuraciones de la cuenta o de la aplicación para instalar scripts maliciosos que permitan el acceso continuo.
-    Crear accesos secundarios o usuarios con privilegios que puedan ser utilizados en caso de que la cuenta principal comprometida sea detectada y bloqueada.
+* Acciones sobre los Objetivos (Actions on Objectives)  
 
-* Comando y Control (Command and Control)
+  * Exfiltración de datos (T1567.002 - Exfiltración a servicio cloud utilizando servicio web):
+    Descarga y almacenamiento de las credenciales robadas en un servicio cloud alojado en el mismo proveedor. El usar el mismo proveedor cloud disminuye las probabilidades de detección ya que se evita la creación de conexiones "al exterior".
+  
+  * Utilizar las credenciales obtenidas para acceder a otros servicios y plataformas, como correos electrónicos y bancos.
 
-  * Establecer un canal seguro de comunicación:
-
-    T1071.001 (Comunicación con C2 a través de HTTP/HTTPS)
-    Utilizar protocolos comunes y cifrados (HTTP/HTTPS) para comunicarse con el malware instalado en la aplicación.
-    Implementar técnicas de ofuscación y cifrado en la comunicación para evitar la detección.
-
-  * Enviar y recibir comandos:
-
-    Utilizar el canal de comunicación C2 para enviar comandos al sistema comprometido.
-    Monitorizar la actividad de la cuenta comprometida y realizar ajustes según sea necesario.
-
-* Acciones sobre los Objetivos (Actions on Objectives)
-
-  * Exfiltración de credenciales:
-
-    T1530 (Robo de credenciales para uso en otros sistemas)
-    Descargar y almacenar las credenciales robadas en un servidor seguro controlado por el atacante.
-    Utilizar las credenciales para acceder a otros servicios y plataformas, como correos electrónicos y bancos.
-
-  * Mantener actividades de bajo perfil:
-
-    T1078.001 (Uso de credenciales válidas en otros servicios)
-    Minimizar las actividades visibles para evitar la detección.
-    Configurar alertas silenciosas que notifiquen al atacante sobre cualquier posible descubrimiento de la brecha sin alertar a los defensores.
-    Continuar explotando las credenciales robadas durante el mayor tiempo posible, realizando movimientos laterales para acceder a más información valiosa.
+    
