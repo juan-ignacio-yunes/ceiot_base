@@ -24,7 +24,7 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
 
   * Uso de de softwares (M1054): utilizar mecanismos de autenticación de correo electrónico y antisuplantación de identidad (anti-spoofing) para filtrar mensajes según comprobaciones de validez del dominio del remitente (usando SPF) y la integridad de los mensajes (usando DKIM).
     
-  * Entrenamiento de integrantes de la empresa (M1017): capacitar a los usuarios para que identifiquen técnicas de ingeniería social y envíen correos electrónicos de phishing.
+  * Entrenamiento de integrantes de la empresa (M1017): capacitar a los usuarios para que identifiquen técnicas de ingeniería social, haciendo foco en correos electrónicos de phishing.
 
 * Explotación (Exploitation)
 
