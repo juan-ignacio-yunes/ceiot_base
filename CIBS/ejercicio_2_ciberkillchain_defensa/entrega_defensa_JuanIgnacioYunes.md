@@ -12,7 +12,7 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
 
 ## Resolución
  
- * Acciones sobre los Objetivos (Actions on Objectives)
+* Acciones sobre los Objetivos (Actions on Objectives)
 
   * Que las credenciales estén hasheadas en la base de datos. De esa manera, aunque llegue hasta donde se alojan las mismas, no podrán ser utilizadas.
 
@@ -34,9 +34,9 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
     
   * Entrenamiento de integrantes de la empresa (M1017): capacitar a los usuarios para que identifiquen técnicas de ingeniería social, haciendo foco en correos electrónicos de phishing.
  
- * Armamento (Weaponization)
-
-  * DS0037: utilizar servicios que puedan ayudar en el seguimiento de los certificados en uso en sitios de Internet. En algunos casos, es posible aprovechar piezas conocidas de información de certificados para descubrir otra infraestructura adversaria.
+* Armamento (Weaponization)
+   
+   * DS0037: utilizar servicios que puedan ayudar en el seguimiento de los certificados en uso en sitios de Internet. En algunos casos, es posible aprovechar piezas conocidas de información de certificados para descubrir otra infraestructura adversaria.
 
 * Reconocimiento (Reconnaissance)
 
