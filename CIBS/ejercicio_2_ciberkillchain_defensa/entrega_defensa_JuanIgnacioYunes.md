@@ -18,12 +18,12 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
 
 * Comando y Control (Command and Control)
 
-  * Network Traffic Flow (DS0029): Supervisar el tráfico web. Proceder a bloquear usuario detectado como malisioso.
+  * Network Traffic Flow (DS0029): Supervisar el tráfico web. Proceder a bloquear usuario detectado como malicioso.
 
 * Instalación (Installation)
 
   * Limitar el acceso a recursos a través de la red (M1035): evitar que cualquiera pueda acceder a la instancia donde se gestionan los usuarios.
-  * Autenticación de 2 factores (M1032): se busca que para realizar cambios en configuraciones sensibles sea necesario tener algo más que las ceredenciales de usuario.
+  * Autenticación de 2 factores (M1032): se busca que para realizar cambios en configuraciones sensibles sea necesario tener algo más que las credenciales de usuario.
 
 * Explotación (Exploitation)
 
