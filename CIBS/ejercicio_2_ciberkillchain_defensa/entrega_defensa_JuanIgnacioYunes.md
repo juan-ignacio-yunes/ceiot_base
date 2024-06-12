@@ -14,23 +14,23 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
  
  * Acciones sobre los Objetivos (Actions on Objectives)
 
-  * 
+  * Que las credenciales estén hasheadas en la base de datos. De esa manera, aunque llegue hasta donde se alojan las mismas, no podrán ser utilizadas.
 
 * Comando y Control (Command and Control)
 
-  * Network Traffic Flow (DS0029): Supervisar el tráfico web
+  * Network Traffic Flow (DS0029): Supervisar el tráfico web. Proceder a bloquear usuario detectado como malisioso.
 
 * Instalación (Installation)
 
+  * Limitar el acceso a recursos a través de la red (M1035): evitar que cualquiera pueda acceder a la instancia donde se gestionan los usuarios.
   * Autenticación de 2 factores (M1032): se busca que para realizar cambios en configuraciones sensibles sea necesario tener algo más que las ceredenciales de usuario.
 
 * Explotación (Exploitation)
 
- * Detectar y evitar intermediarios en la autenticación de un usuario para evitar que las credenciales vengan de una página web ajena al dominio propio. En este caso también se quitarán todos los permisos al usuario vulnerado.
+  * Autenticación multifactorial (M1032): implementar autenticación multifactor para evitar que el atacante pueda acceder a las plataformas simplemente con el de usuario y contraseña.
+  * Que sea necesario estar conectado a una VPN para acceder al sistema de la empresa.
 
 * Entrega (Delivery)
-
-  * Uso de de softwares (M1054): utilizar mecanismos de autenticación de correo electrónico y antisuplantación de identidad (anti-spoofing) para filtrar mensajes según comprobaciones de validez del dominio del remitente (usando SPF) y la integridad de los mensajes (usando DKIM).
     
   * Entrenamiento de integrantes de la empresa (M1017): capacitar a los usuarios para que identifiquen técnicas de ingeniería social, haciendo foco en correos electrónicos de phishing.
  
@@ -40,4 +40,4 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
 
 * Reconocimiento (Reconnaissance)
 
-  * internet scan (DS0035): para saber que están tratando de reconocer como es la infraestructura. Esta técnica sólo sirve para saber que es probable que seamos el objetivo de un ataque. Se pueden dar falsos positivos.
+  * Internet scan (DS0035): para saber que están tratando de reconocer como es la infraestructura. Esta técnica sólo sirve para saber que es probable que seamos el objetivo de un ataque. Se pueden dar falsos positivos.
